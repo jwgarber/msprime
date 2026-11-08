@@ -369,6 +369,19 @@ __msp_safe_free(void **ptr)
     }
 }
 
+void *
+msp_aligned_alloc(size_t count, size_t size, size_t align)
+{
+    if (size != 0 && count > SIZE_MAX / size) {
+        errno = ENOMEM;
+        return NULL;
+    }
+
+    size_t bytes = count * size;
+
+    return aligned_alloc(align, bytes);
+}
+
 bool
 doubles_almost_equal(double a, double b, double eps)
 {

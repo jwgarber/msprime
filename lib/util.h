@@ -146,6 +146,18 @@ void __msp_safe_free(void **ptr);
 
 #define msp_safe_free(pointer) __msp_safe_free((void **) &(pointer))
 
+void *msp_aligned_alloc(size_t count, size_t size, size_t align);
+
+#ifdef _WIN32
+// Windows C library is not standards compliant
+// https://en.cppreference.com/c/memory/aligned_alloc
+#include <malloc.h>
+#define aligned_alloc(alignment, size) _aligned_malloc(size, alignment)
+#define msp_aligned_free(pointer)      _aligned_free(pointer)
+#else
+#define msp_aligned_free(pointer) msp_safe_free(pointer)
+#endif
+
 bool doubles_almost_equal(double a, double b, double eps);
 
 size_t probability_list_select(double u, size_t num_probs, double const *probs);
