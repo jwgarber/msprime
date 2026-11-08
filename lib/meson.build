@@ -10,7 +10,7 @@ cunit_dep = dependency('cunit')
 config_dep = dependency('libconfig')
 
 extra_c_args = [
-    '-std=c99', '-Wall', '-Wextra', '-Werror', '-Wpedantic', '-W',
+    '-std=c11', '-Wall', '-Wextra', '-Werror', '-Wpedantic', '-W',
     '-Wmissing-prototypes',  '-Wstrict-prototypes',
     '-Wconversion', '-Wshadow', '-Wpointer-arith', '-Wcast-align',
     '-Wcast-qual', '-Wwrite-strings', '-Wnested-externs',

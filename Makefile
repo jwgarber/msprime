@@ -11,7 +11,7 @@ cmodule: ${SRC}
 # allchecks turns on as many checks as make sense when building
 # Python-C extensions.
 allchecks: ${SRC}
-	CFLAGS="-std=c99 -Wall -Wextra -Werror -Wno-unused-parameter" && \
+	CFLAGS="-std=c11 -Wall -Wextra -Werror -Wno-unused-parameter" && \
 	CFLAGS+=" -Wno-missing-field-initializers -Wno-cast-function-type" && \
 	CFLAGS+=" --coverage" && \
 	export CFLAGS && uv run python3 setup.py build_ext --inplace

@@ -700,7 +700,7 @@ fast_search_free(fast_search_t *self)
 
 /*******************************
  *  `extern inline` declarations
- *  Due to compiler/linker limitations of C99, `inline` function declarations
+ *  Due to compiler/linker limitations of C, `inline` function declarations
  *  must be restated with the `extern` keyword in one ".c" file
  *  (or never declared in header files and declared with `static`)
  */

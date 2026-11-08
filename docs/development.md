@@ -344,9 +344,9 @@ $ uv run prek --all-files
 
 ### Coding conventions
 
-The code is written using the [C99](<https://en.wikipedia.org/wiki/C99>) standard. All
-variable declarations should be done at the start of a function, and functions
-kept short and simple where at all possible.
+The code is written using the [C11](<https://en.wikipedia.org/wiki/C11_(C_standard_revision)>)
+standard. All variable declarations should be done at the start of a function,
+and functions kept short and simple where at all possible.
 
 No global or module level variables are used for production code.
 

@@ -105,7 +105,7 @@ def get_extension():
     return Extension(
         "msprime._msprime",
         sources=sources,
-        extra_compile_args=["-std=c99"],
+        extra_compile_args=["-std=c11"],
         libraries=libraries,
         define_macros=defines,
         include_dirs=includes + configurator.include_dirs + [numpy.get_include()],
