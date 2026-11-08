@@ -92,6 +92,10 @@ def get_extension():
 
     libraries = ["gsl", "gslcblas"]
     defines = []
+
+    extra_compile_args = ["-std=c11"]
+    extra_link_args = []
+
     if IS_WINDOWS:
         # Needed for generating UUIDs
         libraries.append("Advapi32")
@@ -101,11 +105,17 @@ def get_extension():
             ("GSL_DLL", None),
             ("WIN32", None),
         ]
+        extra_compile_args.append("/GL")
+        extra_link_args.append("/LTCG")
+    else:
+        extra_compile_args.append("-flto")
+        extra_link_args.append("-flto")
 
     return Extension(
         "msprime._msprime",
         sources=sources,
-        extra_compile_args=["-std=c11"],
+        extra_compile_args=extra_compile_args,
+        extra_link_args=extra_link_args,
         libraries=libraries,
         define_macros=defines,
         include_dirs=includes + configurator.include_dirs + [numpy.get_include()],
